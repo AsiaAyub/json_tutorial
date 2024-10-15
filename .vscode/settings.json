@@ -1,0 +1,16 @@
+{
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "editor.codeActionsOnSave": {
+      // const solver or fixAll Errors
+      "source.fixAll": true,
+       
+    },
+    "cSpell.words": [
+      "sompower"
+    ],
+    "terminal.integrated.windowsEnableConpty": false
+  }
+  
