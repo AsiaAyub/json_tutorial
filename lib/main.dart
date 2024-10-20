@@ -11,12 +11,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Json Tutorial',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
+    // initialRoute: Constants.homeRoute,
+    //   routes: _buildAppRoutes(),
     );
   }
+
+  // Map<String, WidgetBuilder> _buildAppRoutes(){
+  //   return {
+  //     Constants.homeRoute: (context) => const MyHomePage(),
+  //
+  //     Constants.postsRouts: (context) {
+  //       final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+  //       return PostsPage(
+  //         uid: args['uid'],
+  //         name: args['name'],
+  //         email: args['email'],
+  //       );
+  //     },
+  //
+  //     Constants.commentsRoute: (context) {
+  //       final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+  //       return CommentsPage(
+  //         postId: args['postId'],
+  //       );
+  //     }
+  //
+  //   };
+  // }
 }
