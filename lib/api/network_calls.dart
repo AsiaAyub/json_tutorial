@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:json_tutorial/user.dart';
+import 'package:json_tutorial/Models/user.dart';
 
 // get
 // post
