@@ -11,10 +11,8 @@ late Address address;
 late Company company;
 
 class NetworkCalls {
-
   Future<dynamic> getUsers() async {
     try {
-
       http.Response response = await http
           .get(Uri.parse("https://jsonplaceholder.typicode.com/users"));
 
@@ -32,16 +30,20 @@ class NetworkCalls {
 
   Future<dynamic> getPostsByUser(int? id) async {
     try {
-
-      http.Response response = await http.get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
+      http.Response response = await http.get(
+          Uri.parse("https://jsonplaceholder.typicode.com/posts?userId=$id"));
+      // print(response.statusCode);
+      // print(response.body);
 
       if (response.statusCode == 200) {
-
         List<dynamic> posts = jsonDecode(response.body);
+        return posts;
 
-        List<dynamic> userPosts = posts.where((post) => post['userId'] == id).toList();
+        // print(posts);
+        // List<dynamic> userPosts =
+        //     posts.where((post) => post['userId'] == id).toList();
 
-        return userPosts;
+        // return userPosts;
       } else {
         return false;
       }
@@ -50,26 +52,23 @@ class NetworkCalls {
     }
   }
 
-  Future<dynamic> getCommentsByPost (int? postId) async {
-     try{
-       http.Response response = await http.get(Uri.parse("https://jsonplaceholder.typicode.com/comments"));
+  Future<dynamic> getCommentsByPost(int? postId) async {
+    try {
+      http.Response response = await http.get(Uri.parse(
+          "https://jsonplaceholder.typicode.com/comments?postId=$postId"));
 
-       if(response.statusCode == 200){
+      if (response.statusCode == 200) {
+        List<dynamic> comments = jsonDecode(response.body);
+        return comments;
 
-         List<dynamic> comments = jsonDecode(response.body);
-         List<dynamic> postComments = comments.where((comment) => comment['postId'] == postId).toList();
-         return postComments;
-
-       }
-       else{
-         return false;
-       }
-     }catch(e){
-       return e;
-     }
-
+        // List<dynamic> postComments =
+        //     comments.where((comment) => comment['postId'] == postId).toList();
+        // return postComments;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return e;
+    }
   }
-
-
-
 }
